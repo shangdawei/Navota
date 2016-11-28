@@ -1,6 +1,8 @@
 
 ;; Architecture extensions
 #include weak "..\ARM\ARMv6-M-SYST.ddf"
+#include weak "..\ARM\ARMv6-M-DEBUG.ddf"
+#include weak "..\ARM\ARMv6-M.ddf"
 
 ;; Memory information ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;
@@ -13,7 +15,21 @@
 ;;   AccType   type of access, read-only (R), read-write (RW) or SFR (W)
 
 [Memory]
-;;         Name             AdrSpace    StartAdr    EndAdr     AccType   Width
-Memory =  Flash            Memory      0x00000000  0x0002FFFF  R
+;;         Name             AdrSpace    StartAdr    EndAdr      AccType   Width
+Memory =  Flash            Memory      0x00000000  0x00007FFF  R
 Memory =  RAM              Memory      0x1FFFF800  0x200017FF  RW
-Memory =  SystemSFR        Memory      0xE0000000  0xE00FFFFF  RW
+Memory =  SystemMCM        Memory      0xF0003000  0xF0003FFF  W
+Memory =  PeriphGPIO       Memory      0x400FF000  0x400FFFFF  W
+Memory =  SystemROMTable   Memory      0xF0002000  0xF0002FFF  W
+Memory =  SystemMTBDWT     Memory      0xF0001000  0xF0001FFF  W
+Memory =  PeriphBME        Memory      0x44000000  0x5FFFFFFF  W
+Memory =  SystemMTB        Memory      0xF0000000  0xF0000FFF  W
+Memory =  SystemGPIO       Memory      0xF8000000  0xFFFFFFFF  W
+Memory =  Periph           Memory      0x40000000  0x4007FFFF  W
+Memory =  SystemSFR        Memory      0xE0000000  0xE00FFFFF  W
+
+TrustedRanges = true
+UseSfrFilter = true
+
+[SfrInclude]
+File = NV32F100.svd
