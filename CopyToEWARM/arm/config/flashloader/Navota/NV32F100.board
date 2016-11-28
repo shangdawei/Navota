@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<flash_board>
+  <pass>
+    <loader>$TOOLKIT_DIR$\config\flashloader\Navota\NV32F100.flash</loader>
+    <range>CODE 0x00000000 0x00020000</range>
+  </pass>
+</flash_board>

@@ -1,0 +1,25 @@
+[FILEFORMAT]
+rev=1.6
+
+[CHIP]
+name=NV32F100
+endiansupport=le
+thumbsupport=true
+armsupport=false
+fpu=None
+SIMD=false
+JTAG=false
+SWD=true
+SWO_TraceD0=false
+
+[CORE]
+name=Cortex-M0+
+
+[DDF FILE]
+name=Navota\NV32F100.ddf
+
+[LINKER FILE]
+name=$TOOLKIT_DIR$\config\linker\Navota\NV32F100_Flash.icf
+
+[FLASH LOADER]
+little=$TOOLKIT_DIR$\config\flashloader\Navota\NV32F100.board

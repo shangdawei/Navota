@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<optionMenuItem>
+  <tag>NV32F100</tag>
+  <display>Navota NV32F100</display>
+  <data>$CUR_DIR$\NV32F100.i79</data>
+</optionMenuItem>
+

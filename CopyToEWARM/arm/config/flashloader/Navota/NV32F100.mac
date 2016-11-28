@@ -1,0 +1,18 @@
+setup()
+{
+
+  __writeMemory32(0x1FFFF800,0x000002000, "Memory"); //Vector table remap at 0x1FFFFC00
+}
+
+execUserPreload()
+{
+  __message "----- Prepare hardware for Flashloader -----\n";
+  setup();
+}
+
+execUserFlashInit()  // Called by debugger before loading flash loader in RAM.
+{
+  __message "----- Prepare hardware for Flashloader -----\n";
+  setup();
+}
+
